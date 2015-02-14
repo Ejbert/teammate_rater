@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :reviews
   has_many :team_members
-  has_many :teams
+  has_many :reviews, through: :team_members
+  has_many :teams, through: :team_members
 end

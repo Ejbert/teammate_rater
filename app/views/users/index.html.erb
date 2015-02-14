@@ -1,16 +1,22 @@
 <h1>Users</h1>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped">
   <tr>
     <th>Rating</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
+    <th></th>
+    <th></th>
   </tr>
   
   <% @users.each do |user| %>
     <tr>
-      <td>  <!-- eventually add aggregate rating: link_to review.rating, user  -->  </td>
+      <td>  
+        <% @team_members = Team_Member.where(user_id: user.id) %>
+        <% @ratings = Review.where(team_member_id: @team_members) %>
+        <%= link_to @ratings.average(:rating), user %>
+      </td>
       <td><%= link_to user.first_name, user %></td>
       <td><%= link_to user.last_name, user %></td>
       <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>

@@ -34,27 +34,33 @@ team6 = Team.create(course_id: mktg430.id, name: "The 5 P's", description: "Week
 
 # Create team members
 puts "Creating team members..."
-Team_Member.create(team_id: team1.id, user_id: eric.id)
-Team_Member.create(team_id: team1.id, user_id: tony.id)
-Team_Member.create(team_id: team2.id, user_id: sam.id)
+team_member1 = Team_Member.create(team_id: team1.id, user_id: eric.id)
+team_member2 = Team_Member.create(team_id: team1.id, user_id: tony.id)
+team_member3 = Team_Member.create(team_id: team2.id, user_id: sam.id)
 
-Team_Member.create(team_id: team2.id, user_id: dave.id)
-Team_Member.create(team_id: team2.id, user_id: claudia.id)
+team_member4 = Team_Member.create(team_id: team2.id, user_id: dave.id)
+team_member5 = Team_Member.create(team_id: team2.id, user_id: claudia.id)
 
-Team_Member.create(team_id: team3.id, user_id: eric.id)
-Team_Member.create(team_id: team3.id, user_id: dave.id)
+team_member6 = Team_Member.create(team_id: team3.id, user_id: eric.id)
+team_member7 = Team_Member.create(team_id: team3.id, user_id: dave.id)
 
-Team_Member.create(team_id: team4.id, user_id: claudia.id)
-Team_Member.create(team_id: team2.id, user_id: sam.id)
+team_member8 = Team_Member.create(team_id: team4.id, user_id: claudia.id)
+team_member9 = Team_Member.create(team_id: team2.id, user_id: sam.id)
 
-Team_Member.create(team_id: team5.id, user_id: eric.id)
-Team_Member.create(team_id: team2.id, user_id: dave.id)
-Team_Member.create(team_id: team2.id, user_id: tony.id)
-Team_Member.create(team_id: team2.id, user_id: claudia.id)
+team_member10 = Team_Member.create(team_id: team5.id, user_id: eric.id)
+team_member11 = Team_Member.create(team_id: team2.id, user_id: dave.id)
+team_member12 = Team_Member.create(team_id: team2.id, user_id: tony.id)
+team_member13 = Team_Member.create(team_id: team2.id, user_id: claudia.id)
 
-Team_Member.create(team_id: team6.id, user_id: sam.id)
-Team_Member.create(team_id: team2.id, user_id: tony.id)
+team_member14 = Team_Member.create(team_id: team6.id, user_id: sam.id)
+team_member15 = Team_Member.create(team_id: team2.id, user_id: tony.id)
 
 # Create reviews
 puts "Creating reviews..."
+Review.create(user_id: eric.id, team_member_id: team_member2.id, rating: 3, review: "Tony contributed many interesting ideas, but he was not always a reliable team member. There were times that he would show up to meetings late or unprepared. I think he was in the middle of recruiting, but so was everyone else. I would only work with him again if I knew he would be more committed.")
+Review.create(user_id: tony.id, team_member_id: team_member3.id, rating: 4, review: "Sam was easy to work with and his analytical / modeling skills came in very handy.")
+Review.create(user_id: dave.id, team_member_id: team_member6.id, rating: 2, review: "Eric was always on his phone or computer during group meetings and a huge distraction. I hate people like this.")
+Review.create(user_id: claudia.id, team_member_id: team_member10.id, rating: 4, review: "A+++++++ great product quick shipping would purchase again ++++++++++")
+Review.create(user_id: claudia.id, team_member_id: team_member11.id, rating: 5, review: "Dave is so smart and full of great ideas. He naturally assumed the role of group leader, keeping us on track while making things fun!")
+
 
