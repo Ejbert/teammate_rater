@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TeammateRater</title>
-
+  <title>Teammate Rater</title>
+  <meta charset="UTF-8">
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "defaults", media: 
-  "all", 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag "defaults", media: "all", 'data-turbolinks-track' => true %>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  
+  <!-- Bootstrap -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
   <%= csrf_meta_tags %>
 </head>
+
 <body>
+  <div class="page-header text-center">
+      <h1 id="pagetitle">Teammate Rater</h1>
+      <h4 id="tagline"><em>Giving credit where it's due</em></h4>
+  </div>
 
-<div class="container">
-<%= yield %>
-</div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Users <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="<%= users_path %>">See All</a></li>
+              <li><a href="#">Create New</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reviews <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">See All</a></li>
+              <li><a href="#">Create New</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Teams <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">See All</a></li>
+              <li><a href="#">Create New</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-</body>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  </body>
 </html>
