@@ -21,8 +21,7 @@
       <td><%= link_to user.last_name, user %></td>
       <td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
       <td><%= link_to "Edit", edit_user_path(user)%></td>
-      <td>Delete</td>
-      <!-- link_to "Delete", user method: :delete-->
+      <td><%= link_to "Delete", user_path(user), method: :destroy, data: { confirm: 'Are you sure you want to delete this user? All reviews of this user will also be deleted.' } %></td>
     </tr>
   <% end %>
 </table>

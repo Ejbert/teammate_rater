@@ -1,1 +1,35 @@
 <h1>Create a New User</h1>
+
+<!-- 
+User:
+  username: string
+  first_name: string
+  last_name: string
+  email: string
+  password: string
+-->
+
+<%= form_for @user do |form| %>
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.text_field :password, class: "form-control" %>
+  </div>
+  
+  <%= form.button 'Create User', class: "btn btn-success" %>
+<% end %>
