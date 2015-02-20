@@ -1,0 +1,12 @@
+Showing Team Members
+
+Right now this is a placeholder for where you'd enter your teammates
+
+Here are the teammates:
+<br>
+<%@teammembers.each do |teammember|%>
+  <li><%=User.find_by(id: teammember.user_id).first_name%> <%=User.find_by(id: teammember.user_id).last_name%></li>
+<%end%>
+<br>
+
+<%= link_to "back to the Team Page", teams_path%>

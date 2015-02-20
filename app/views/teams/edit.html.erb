@@ -1,0 +1,29 @@
+<h1>Edit a team</h1>
+
+
+<h2><%= @team.name%></h2>
+<h4><em><%= @team.course.name %> </em></h4>
+
+<%= form_for @team do |form| %>
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :course_id %>
+    <%= form.collection_select :course_id, Course.order(:name), :id, :name, { include_blank: true}, {class: "form-control" }%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control", rows: 4%>
+  </div>
+  
+  <div>
+  This is where we'll edit team members when we figure out how to do it.
+  </div>
+  <br>
+
+  <%= form.button 'Update Team', class: "btn btn-success" %> <%=link_to "Cancel",teams_path,class: "btn btn-default"%>
+<% end %>
