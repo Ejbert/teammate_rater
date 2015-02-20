@@ -14,8 +14,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    team_params = params.require(:team, :name).permit!
-    @team = Team.new(team_params)
+    team_params = params.require(:team).permit!
+    @team = Team.create(team_params)
     if @team.save
       redirect_to team_members_path
     else
