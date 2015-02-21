@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "team_member_id"
     t.integer "user_id"
-    t.integer "rating"
     t.text    "review"
+    t.integer "rating"
+    t.integer "team_member_id"
   end
 
   add_index "reviews", ["team_member_id"], name: "index_reviews_on_team_member_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "first_name"
     t.string "last_name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
   end
 
 end
