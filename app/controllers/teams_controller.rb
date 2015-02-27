@@ -16,11 +16,11 @@ class TeamsController < ApplicationController
   def create
     team_params = params.require(:team).permit!
     @team = Team.create(team_params)
-    if @team.save
-      redirect_to team_members_path
+    if @team.valid?
+      redirect_to new_team_member_path(team_id: @team.id)
     else
-      render text: "You have chosen ... Poorly. Try again."
-      link_to "Back to Show All Teams",teams_path,class: "btn btn-default"
+      render "new", alert: "Please fill in all fields."
+      
     end
   end
 
