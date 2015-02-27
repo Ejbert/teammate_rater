@@ -16,7 +16,7 @@ class TeamsController < ApplicationController
   def create
     team_params = params.require(:team).permit!
     @team = Team.create(team_params)
-    if @team.save
+    if @team.valid?
       redirect_to team_members_path
     else
       render text: "You have chosen ... Poorly. Try again."

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :require_user, only: [:index, :show]
 
   def index
     @users = User.all
@@ -17,11 +18,11 @@ class UsersController < ApplicationController
 
   def create
     user_params = params.require(:user).permit!
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to users_path
+    @user = User.create(user_params)
+    if @user.valid?
+      redirect_to users_path, notice: "Good to go!"
     else
-      render text: "FAIL"
+      render "new"
     end
   end
 
