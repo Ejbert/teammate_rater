@@ -19,11 +19,12 @@
     <%= form.label :description %>
     <%= form.text_area :description, class: "form-control", rows: 4%>
   </div>
-  
+
   <div>
-  <%= link_to 'Update Team Members', team_members_path, class: "btn btn-success" %>
+  <!-- note: If you change the text, "Save and Edit Team Members, you must also change the text in teams_controller in the edit action!" -->
+  <%= form.submit 'Save and Edit Team Members', class: "btn btn-success" %>
   </div>
   <br>
 
-  <%= form.button 'Update Team', class: "btn btn-success" %> <%=link_to "Cancel",teams_path,class: "btn btn-default"%>
+  <%= form.submit 'Save', class: "btn btn-success" %> <%=link_to "Cancel",teams_path,class: "btn btn-default"%>
 <% end %>

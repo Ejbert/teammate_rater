@@ -33,7 +33,13 @@ class TeamsController < ApplicationController
     team_params = params.require(:team).permit!
     @team = Team.find_by(id: params["id"])
     @team.update(team_params)
-    redirect_to teams_path
+    # render :text => params
+    if params["commit"]=='Save and Edit Team Members'
+      # render :text => params["id"]
+      redirect_to new_team_member_path(:team_id=>params["id"])
+    else
+      redirect_to teams_path
+    end
   end
 
   def destroy

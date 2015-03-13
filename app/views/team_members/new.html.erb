@@ -1,13 +1,36 @@
 <p>
-<h2> Team Name: <%= Team.find_by(id: params["team_id"]).name%></h2>
+<% team = Team.find_by(id: params["team_id"])%>
+<h2> Team Name: <%= team.name%></h2>
 </p>
 
+<% team_members = Team_Member.where(team_id: team.id)%>
+<h3> Current Team Members: </h3>
+
+
+  
+
+<% team_members.each do |team_member|%>
+  <% user = User.find_by(id: team_member.user_id)%>
+  <li><%=user.first_name%> <%=user.last_name%></li>
+<%end%>
+
+
 <%= form_for @team_member do |form| %>
+
   <div class="form-group">
-    <%= form.label :user_id %>
-    <%= form.collection_select :user_id, User.order(:last_name), :id, :first_name, { include_blank: true}, {class: "form-control" }%>
+    <%= form.hidden_field :team_id, :value => team.id%>
+
+    
   </div>
 
-  <%= form.button 'Save Teammates!', class: "btn btn-success" %>
+  <div class="form-group">
+    <%= form.label :user_id %>
+    <%= form.collection_select :user_id, User.order(:last_name), :id, :first_name, { include_blank: false}, {class: "form-control" }%>
+  </div>
+
+
+  <%= form.submit 'Add Another', class: "btn btn-success"%>
+  <%= form.submit 'Save and Return', class: "btn btn-success"%>
+  <%=link_to "Cancel",teams_path,class: "btn btn-default"%>
 
 <% end %>
