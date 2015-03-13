@@ -2,6 +2,8 @@
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  height: 1000px;
+  max-height: auto;
   h1 {
     font-size: 36px;
   }
@@ -30,8 +32,21 @@
     border-bottom-left-radius: 0;
   }
   input[type="password"] {
-    margin-bottom: 10px;
+    margin-bottom: 100px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
+.sessions-image {
+/*  margin: 0;*/
+  background: url(/assets/sessions_page.jpg) no-repeat center center fixed;
+/*  background-color: transparent;
+/*  background: url(../images/sessions_page.jpg);*/
+/*  background-width: auto; 
+  background-height: auto;
+  background-repeat:no-repeat;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

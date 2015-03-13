@@ -16,6 +16,8 @@ Team:
   course_id: int
   name: string
   description: text
+  created_at: datetime
+  updated_at: datetime
 
 Team_Member:
   team_id: int
@@ -26,3 +28,5 @@ Review:
   user_id: int
   rating: int
   review: text
+  created_at: datetime
+  updated_at: datetime
