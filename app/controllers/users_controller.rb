@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id:params["id"])
     # EB says: there might be a more elegant way to do this using has_many or belongs_to, but it seems to work
-    @team_members = Team_Member.where(user_id: @user.id)
+    @team_members = Team_Member.where(user_id: @user)
     @reviews = Review.where(team_member_id: @team_members)
   end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path
     else
-      render text: "FAIL"
+      redirect_to new_user_path, alert: "Please enter all fields."
     end
   end
 

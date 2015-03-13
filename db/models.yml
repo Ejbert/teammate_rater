@@ -25,7 +25,10 @@ Team_Member:
 
 Review:
   team_member_id: int
+  course_id: int
+  team_id: int
   user_id: int
+  dummy_id: int
   rating: int
   review: text
   created_at: datetime

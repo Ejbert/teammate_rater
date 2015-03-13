@@ -1,1 +1,40 @@
 <h1>Create a New Review</h1>
+
+<!-- 
+Review:
+  team_member_id: int
+  course_id: int
+  team_id: int
+  user_id: int
+  rating: int
+  review: text
+  created_at: datetime
+  updated_at: datetime
+-->
+
+<%= form_for @review do |form| %>
+  <div class="form-group">
+    <%= form.hidden_field :user_id, :value => params["user_id"] %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :team_member_id %>
+    <%= form.collection_select :dummy_id, User.order(:last_name), :id, :first_name, { include_blank: true}, {class: "form-control" }%>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :team_id %>
+    <%= form.collection_select :team_id, Team.order(:name), :id, :name, { include_blank: true}, {class: "form-control" }%>
+  </div>
+  
+  <div class="form-group">
+    <%= form.label :rating %>
+    <%= form.select :rating, [1,2,3,4,5], class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.label :review %>
+    <%= form.text_area :review, class: "form-control" %>
+  </div>
+  
+  <%= form.button 'Create Review', class: "btn btn-success" %>
+<% end %>
