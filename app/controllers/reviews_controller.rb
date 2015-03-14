@@ -15,14 +15,12 @@ class ReviewsController < ApplicationController
   def create
     review_params = params.require(:review).permit!
     @review = Review.create(review_params)
-    @review.team_member_id = Team_Member.where(user_id: params[:dummy_id], team_id: params[:team_id])
-    @review.save
+    @review.team_member_id = Team_Member.find_by(user_id: review_params["dummy_id"], team_id: review_params["team_id"]).id
+    @review.save!
     if @review.valid?
-      #redirect_to users_path, notice: "Review saved."
-      render text: params
+      redirect_to users_path, notice: "Review saved."
     else
-      #redirect_to new_review_path, alert: "Please enter all fields."
-      render text: params
+      redirect_to new_review_path, alert: "Please enter all fields."
     end
   end
 

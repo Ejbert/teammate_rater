@@ -6,11 +6,29 @@
 <% @reviews.each do |review| %>
   <h4>Rating: <%= review.rating %> </h4>
   
-  <p>Course: <!-- Add in course name --> </p>
-
-  <p>Team: <!-- Add in team name --> </p>
+  <% member = Team_Member.find_by(id: review.team_member_id) %>
+  <% team = Team.find_by(id: member.team_id) %>
+  <p><b>Team:</b> <%= team.name %> </p>
+  
+  <% course = Course.find_by(id: team.course_id) %>
+  <p><b>Course:</b> <%= course.name %> </p>
 
   <p><em>By: <%= User.find_by(id: review.user_id).first_name %> <%= User.find_by(id: review.user_id).last_name %></em></p>
   <p><%= review.review %> </p>
   <br>
 <% end %>
+<!--
+Team:
+  course_id: int
+  name: string
+  description: text
+  created_at: datetime
+  updated_at: datetime
+
+Team_Member:
+  team_id: int
+  user_id: int
+
+Review:
+  team_member_id: int
+-->

@@ -15,7 +15,12 @@
       <td>  
         <% @team_members = Team_Member.where(user_id: user.id) %>
         <% @ratings = Review.where(team_member_id: @team_members) %>
-        <%= link_to @ratings.average(:rating), user %>
+        <% if @ratings.present? %>
+          <% @rating_avg = @ratings.average(:rating).to_f.round(1) %>
+          <%= link_to @rating_avg, user %>  
+        <% else %>
+          <%= link_to "n/a", user %>
+        <% end %>
       </td>
       <td><%= link_to user.first_name, user %></td>
       <td><%= link_to user.last_name, user %></td>

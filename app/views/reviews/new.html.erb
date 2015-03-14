@@ -26,7 +26,7 @@ Review:
     <%= form.label :team_id %>
     <%= form.collection_select :team_id, Team.order(:name), :id, :name, { include_blank: true}, {class: "form-control" }%>
   </div>
-  
+
   <div class="form-group">
     <%= form.label :rating %>
     <%= form.select :rating, [1,2,3,4,5], class: "form-control" %>
